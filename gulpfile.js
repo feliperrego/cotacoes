@@ -30,8 +30,8 @@ gulp.task("start", function () {
         ext: "js css less",
         watch: [config.client]
     })
-        .on('start', ['browserify', 'less', 'imagemin'])
-        .on('change', ['browserify', 'less', 'imagemin'])
+        .on('start', ['browserify', 'less', 'imagemin', 'copy-html'])
+        .on('change', ['browserify', 'less', 'imagemin', 'copy-html'])
         .on('restart', function () {
             console.log('Restarted!');
         });
@@ -66,6 +66,12 @@ gulp.task('imagemin', function () {
             use: [pngquant()]
         }))
         .pipe(gulp.dest(config.buildFolder + 'images'));
+});
+
+//Task to copy the html files
+gulp.task('copy-html', function() {
+    gulp.src(config.client + '**/*.html')
+        .pipe(gulp.dest(config.buildFolder));
 });
 
 gulp.task("default", ["start"]);

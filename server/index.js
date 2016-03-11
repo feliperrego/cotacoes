@@ -8,7 +8,7 @@ var express     = require('express'),
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Routes set up
 var router = express.Router();

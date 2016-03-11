@@ -7,7 +7,7 @@ function gulpConfig() {
         server: server,
         client: client,
         nodeApp: nodeApp,
-        buildFolder: client + '/dist/'
+        buildFolder: './dist/'
     };
 }
 
