@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html ng-app="app" lang="pt-br">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title></title>
+    <title>Cotação de Moedas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
 
-    <!-- Le styles -->
     <link href="style.css" rel="stylesheet">
     <script src="app.js" rel="script"></script>
 </head>
 
 <body>
+<base href="/">
+<!-- Container -->
+<div class="container-narrow">
+
+    <div class="masthead">
+        <h3 class="muted">Cotações de Moedas</h3>
+    </div>
+
+    <hr>
+
+    <div class="jumbotron" ng-view>
+    </div>
+
+    <hr>
+
+    <div class="footer">
+        <p></p>
+    </div>
+
+</div>
+<!-- /container -->
+
 </body>
 
 </html>

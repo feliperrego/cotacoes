@@ -1,14 +1,15 @@
 // Initialize the express framework
-var express     = require('express'),
-    path        = require('path'),
-    mongoose    = require('mongoose'),
-    bodyParser  = require('body-parser');
+var express = require('express'),
+    path = require('path'),
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser');
 
 // Express setup 
 var app = express();
+var projectDir = process.env.NODE_ENV == "prod" ? path.join(__dirname, '../dist') : path.join(__dirname, '../client');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(projectDir));
 
 // Routes set up
 var router = express.Router();

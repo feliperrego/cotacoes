@@ -6,7 +6,6 @@ var path        = require('path');
 var gulp        = require('gulp');
 var buffer      = require('gulp-buffer');
 var source      = require('vinyl-source-stream');
-var config      = require("./gulp.config")();
 var uglify      = require('gulp-uglify');
 var gulpif      = require('gulp-if');
 var cssmin      = require('gulp-cssmin');
@@ -15,6 +14,24 @@ var imagemin    = require('gulp-imagemin');
 var pngquant    = require('imagemin-pngquant');
 var browserify  = require('browserify');
 
+// Grunt config
+var server 		= 'server/';
+var client 		= 'client/';
+var	nodeApp 	= server + 'index.js';
+var isProd      = process.env.NODE_ENV == "prod";
+var buildFolder = isProd ? path.join(__dirname, './dist') : path.join(__dirname, './client');
+
+
+// Generic function to execute gulp tasks
+function execTasks() {
+    var tasks = [];
+    if (isProd) {
+        tasks.push('browserify', 'less', 'imagemin', 'copy-html');
+    } else {
+        tasks.push('browserify', 'less')
+    }
+    gulp.start(tasks);
+}
 
 // Set production environment
 gulp.task("production", function () {
@@ -25,53 +42,50 @@ gulp.task("production", function () {
 // Start the server
 gulp.task("start", function () {
     return nodemon({
-        script: config.nodeApp,
-        ignore: ['dist/**'],
+        script: nodeApp,
+        ignore: ['app.js', 'style.css'],
         ext: "js css less",
-        watch: [config.client]
+        watch: [client]
     })
-        .on('start', ['browserify', 'less', 'imagemin', 'copy-html'])
-        .on('change', ['browserify', 'less', 'imagemin', 'copy-html'])
-        .on('restart', function () {
-            console.log('Restarted!');
-        });
+        .on('start', execTasks)
+        .on('change', execTasks);
 });
 
 // Compile all less files
 gulp.task('less', function () {
-    return gulp.src(config.client + 'assets/less/style.less')
+    return gulp.src(client + 'assets/less/style.less')
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
         .pipe(gulpif(process.env.NODE_ENV == "prod", cssmin()))
-        .pipe(gulp.dest(config.buildFolder));
+        .pipe(gulp.dest(buildFolder));
 });
 
 // Concatenate and compress all js files
 gulp.task('browserify', function () {
-    return browserify({entries: [config.client + 'app.js']})
+    return browserify({entries: [client + 'app/app.module.js']})
         .bundle()
         .pipe(source('app.js'))
         .pipe(buffer())
         .pipe(gulpif(process.env.NODE_ENV == "prod", uglify()))
-        .pipe(gulp.dest(config.buildFolder))
+        .pipe(gulp.dest(buildFolder))
 });
 
 // Optimize all images
 gulp.task('imagemin', function () {
-    return gulp.src(config.client + 'assets/images/*')
+    return gulp.src(client + 'assets/images/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(config.buildFolder + 'images'));
+        .pipe(gulp.dest(buildFolder + 'images'));
 });
 
 //Task to copy the html files
 gulp.task('copy-html', function() {
-    gulp.src(config.client + '**/*.html')
-        .pipe(gulp.dest(config.buildFolder));
+    return gulp.src(client + '**/*.html')
+        .pipe(gulp.dest(buildFolder));
 });
 
 gulp.task("default", ["start"]);
