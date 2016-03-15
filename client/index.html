@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Cotação de Moedas</title>
+    <title ng-if="pageTitle" ng-bind="pageTitle + ' - Cotações de moedas'"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -22,21 +22,16 @@
         <menu-widget></menu-widget>
         <h3 class="muted">Cotações de Moedas</h3>
     </div>
-
     <hr>
 
-    <div class="jumbotron" ng-view>
-    </div>
+    <div ng-view></div>
 
     <hr>
-
     <div class="footer">
         <p></p>
     </div>
 
 </div>
 <!-- /container -->
-
 </body>
-
 </html>
