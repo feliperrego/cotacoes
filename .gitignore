@@ -88,6 +88,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-/client/app.js
-/client/style.css
+client/app.js
+client/style.css
 dist
