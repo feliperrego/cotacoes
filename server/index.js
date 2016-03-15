@@ -15,7 +15,9 @@ app.use(express.static(projectDir));
 var router = express.Router();
 
 // Register the routing
-app.use('/', router);
+app.all('/*', function(req, res) {
+    res.sendFile(path.resolve(projectDir, 'index.html'));
+});
 
 // Start mongodb
 //mongoose.connect('mongodb://localhost/cotacoes');
