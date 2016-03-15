@@ -18,14 +18,13 @@ var browserify  = require('browserify');
 var server 		= 'server/';
 var client 		= 'client/';
 var	nodeApp 	= server + 'index.js';
-var isProd      = process.env.NODE_ENV == "prod";
-var buildFolder = isProd ? path.join(__dirname, './dist') : path.join(__dirname, './client');
+var buildFolder;
 
 
 // Generic function to execute gulp tasks
 function execTasks() {
     var tasks = [];
-    if (isProd) {
+    if (process.env.NODE_ENV == "prod") {
         tasks.push('browserify', 'less', 'imagemin', 'copy-html');
     } else {
         tasks.push('browserify', 'less')
@@ -53,6 +52,7 @@ gulp.task("start", function () {
 
 // Compile all less files
 gulp.task('less', function () {
+    buildFolder = process.env.NODE_ENV == "prod" ? path.join(__dirname, './dist') : path.join(__dirname, './client');
     return gulp.src(client + 'assets/less/style.less')
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
@@ -63,6 +63,7 @@ gulp.task('less', function () {
 
 // Concatenate and compress all js files
 gulp.task('browserify', function () {
+    buildFolder = process.env.NODE_ENV == "prod" ? path.join(__dirname, './dist') : path.join(__dirname, './client');
     return browserify({entries: [client + 'app/app.module.js']})
         .bundle()
         .pipe(source('app.js'))
@@ -79,13 +80,13 @@ gulp.task('imagemin', function () {
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(buildFolder + 'images'));
+        .pipe(gulp.dest(path.join(__dirname, './dist/assets/images')));
 });
 
 //Task to copy the html files
 gulp.task('copy-html', function() {
     return gulp.src(client + '**/*.html')
-        .pipe(gulp.dest(buildFolder));
+        .pipe(gulp.dest(path.join(__dirname, './dist')));
 });
 
 gulp.task("default", ["start"]);
