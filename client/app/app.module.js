@@ -8,7 +8,7 @@ require('angular-ui-bootstrap');
 
 // Shared modules imports
 require('./shared/menu/menu.widget');
-require('./shared/currency/currency.widget');
+require('./shared/currency/currency.directive');
 
 // Project modules imports
 require('./components/about/about.controller');

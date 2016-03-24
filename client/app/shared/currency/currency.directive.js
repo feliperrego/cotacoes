@@ -8,7 +8,7 @@
     function currencyValue() {
         // Usage: <currency-value></currency-value>
         return {
-            templateUrl: "app/shared/currency/currency.view.html",
+            templateUrl: "app/shared/currency/currency.html",
             restrict: "E",
             scope: {
                 name: '@',
