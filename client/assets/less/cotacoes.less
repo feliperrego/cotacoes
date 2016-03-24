@@ -1,443 +1,484 @@
 // Color variables (appears count calculates by raw css)
-@color0: #555555; // Appears 21 times
-@color1: #ffffff; // Appears 15 times
-@color2: #dff0d8; // Appears 10 times
-@color3: #74acdf; // Appears 6 times
-@color4: #789d7d; // Appears 6 times
-@color5: #c3c2e6; // Appears 5 times
-@color6: #feeaca; // Appears 5 times
-@color7: #c5ab9e; // Appears 5 times
-@color8: #f4978f; // Appears 5 times
-@color9: #41929d; // Appears 4 times
-@color10: #a7a090; // Appears 4 times
-@color11: #7b6f7a; // Appears 4 times
-@color12: #dbc2d7; // Appears 3 times
-@color13: #9c909b; // Appears 2 times
-@color14: #c1baa9; // Appears 2 times
-@color15: #8aadc0; // Appears 2 times
-@color16: #e8cfe4; // Appears 2 times
-
-
+@color0: #555555;
+// Appears 21 times
+@color1: #ffffff;
+// Appears 15 times
+@color2: #dff0d8;
+// Appears 10 times
+@color3: #74acdf;
+// Appears 6 times
+@color4: #789d7d;
+// Appears 6 times
+@color5: #c3c2e6;
+// Appears 5 times
+@color6: #feeaca;
+// Appears 5 times
+@color7: #c5ab9e;
+// Appears 5 times
+@color8: #f4978f;
+// Appears 5 times
+@color9: #41929d;
+// Appears 4 times
+@color10: #a7a090;
+// Appears 4 times
+@color11: #7b6f7a;
+// Appears 4 times
+@color12: #dbc2d7;
+// Appears 3 times
+@color13: #9c909b;
+// Appears 2 times
+@color14: #c1baa9;
+// Appears 2 times
+@color15: #8aadc0;
+// Appears 2 times
+@color16: #e8cfe4;
+// Appears 2 times
 
 body {
-    padding-bottom: 40px;
-    padding-top: 20px;
+  padding-bottom: 40px;
+  padding-top: 20px;
 }
+
 .container-narrow {
-    margin: 0 auto;
-    max-width: 700px;
+  margin: 0 auto;
+  max-width: 700px;
 }
-.container-narrow>hr {
-    margin: 30px 0;
+
+.container-narrow > hr {
+  margin: 30px 0;
 }
+
+.muted {
+  color: #999999;
+  font-weight: bold;
+}
+
 .jumbotron {
-    margin: 60px 0;
-    text-align: center;
-    h1 {
-        font-size: 72px;
-        line-height: 2;
+  margin: 60px 0;
+  text-align: center;
+  background-color: #FFF;
+  padding: 0;
+  h1 {
+    font-size: 72px;
+    line-height: 2;
+    font-weight: bold;
+
+    small {
+      font-size: 24.5px;
+      color: #999999;
+      margin-left: -15px;
     }
-    .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-    }
-    img {
-        float: left;
-        height: 135px;
-        margin-left: 129px;
-        margin-right: -67px;
-    }
-    .dolar-container {
-        h1 {
-            color: #9dad96;
-        }
-    }
-    .dolarAud-container {
-        h1 {
-            color: @color9;
-        }
-    }
-    .dolarCad-container {
-        h1 {
-            color: #BA6961;
-        }
-    }
-    .dolarNzd-container {
-        h1 {
-            color: #baa194;
-        }
-    }
-    .euro-container {
-        h1 {
-            color: #867BC3;
-        }
-    }
-    .libra-container {
-        h1 {
-            color: #c9b0c5;
-        }
-    }
-    .iene-container {
-        h1 {
-            color: #eedabb;
-        }
-    }
-    .pesoars-container {
-        h1 {
-            color: @color3;
-        }
-    }
-    .pesoclp-container {
-        h1 {
-            color: @color4;
-        }
-    }
-    .pesocop-container {
-        h1 {
-            color: @color10;
-        }
-    }
-    .pesouyu-container {
-        h1 {
-            color: @color11;
-        }
-    }
-}
-.marketing {
-    margin: 60px 0;
-    p+h4 {
-        margin-top: 28px;
-    }
-}
-.btn-mini {
-    -moz-border-radius: 3px !important;
-    -webkit-border-radius: 3px !important;
-    border-radius: 3px !important;
-    font-size: 10.5px !important;
-    margin-bottom: 10px;
-    margin-top: 28px;
-    padding: 0 6px !important;
-}
-.justBlur {
-    -moz-filter: blur(10px);
-    -ms-filter: blur(10px);
-    -o-filter: blur(10px);
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
-}
-.justBlur.justBlurComplete {
-    -moz-filter: blur(0px);
-    -moz-transition: 0.5s -moz-filter linear;
-    -ms-filter: blur(0px);
-    -ms-transition: 0.5s -ms-filter linear;
-    -o-filter: blur(0px);
-    -o-transition: 0.5s -o-filter linear;
-    -webkit-filter: blur(0px);
-    -webkit-transition: 0.5s -webkit-filter linear;
-    filter: blur(0px);
-    transition: 1s filter linear;
-}
-.input-prepend.input-append {
-    input {
-        border-left: 0 none;
-        font-size: 35px;
-        height: 40px;
-        width: 240px;
-    }
-    span {
-        font-size: 20px;
+  }
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+  img {
+    float: left;
+    height: 135px;
+    margin-left: 129px;
+    margin-right: -67px;
+  }
+
+  .curr-content {
+    display: inline-block;
+    width: 290px;
+    margin-top: 20px;
+
+    .input-group {
+      .input-group-addon {
+        background: none repeat scroll 0 0 #DFF0D8;
+        border-right: 0 none;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
         font-weight: bold;
+      }
+
+      input {
+        background: none repeat scroll 0 0 #DFF0D8;
+        border-left: 0 none;
+        text-align: center;
+        font-size: 30px;
+      }
     }
+
+  }
+
+  .btn-mini {
+    -moz-border-radius: 4px !important;
+    -webkit-border-radius: 4px !important;
+    border-radius: 4px !important;
+    margin-top: -38px;
+    padding: 3px 5px !important;
+    font-size: 14px;
+    padding-top: 2px;
+  }
+
+
+  .dolar-container {
+    h1 {
+      color: #9dad96;
+    }
+  }
+  .dolarAud-container {
+    h1 {
+      color: @color9;
+    }
+  }
+  .dolarCad-container {
+    h1 {
+      color: #BA6961;
+    }
+  }
+  .dolarNzd-container {
+    h1 {
+      color: #baa194;
+    }
+  }
+  .euro-container {
+    h1 {
+      color: #867BC3;
+    }
+  }
+  .libra-container {
+    h1 {
+      color: #c9b0c5;
+    }
+  }
+  .iene-container {
+    h1 {
+      color: #eedabb;
+    }
+  }
+  .pesoars-container {
+    h1 {
+      color: @color3;
+    }
+  }
+  .pesoclp-container {
+    h1 {
+      color: @color4;
+    }
+  }
+  .pesocop-container {
+    h1 {
+      color: @color10;
+    }
+  }
+  .pesouyu-container {
+    h1 {
+      color: @color11;
+    }
+  }
 }
-.input-append {
+
+.marketing {
+  margin: 60px 0;
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+.blurred {
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  -o-filter: blur(10px);
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+
+.blurred.complete {
+  -moz-filter: blur(0px);
+  -moz-transition: 0.5s -moz-filter linear;
+  -ms-filter: blur(0px);
+  -ms-transition: 0.5s -ms-filter linear;
+  -o-filter: blur(0px);
+  -o-transition: 0.5s -o-filter linear;
+  -webkit-filter: blur(0px);
+  -webkit-transition: 0.5s -webkit-filter linear;
+  filter: blur(0px);
+  transition: 1s filter linear;
+}
+
+.nav-pills > .active > a {
+  background-color: @color2;
+  color: @color0;
+  &:hover {
+    background-color: @color2;
+    color: @color0;
+  }
+  &:focus {
+    background-color: @color2;
+    color: @color0;
+  }
+}
+
+.dolar-container {
+  .input-append.input-prepend {
     .add-on {
-        background: none repeat scroll 0 0 @color2;
-        height: auto;
-        line-height: 40px;
-        margin-top: 30px;
+      background: none repeat scroll 0 0 @color2;
     }
-}
-.input-prepend {
-    .add-on {
-        background: none repeat scroll 0 0 @color2;
-        height: auto;
-        line-height: 40px;
-        margin-top: 30px;
-    }
-}
-.nav-pills>.active>a {
+  }
+  .nav-pills > .active > a {
     background-color: @color2;
     color: @color0;
     &:hover {
-        background-color: @color2;
-        color: @color0;
+      background-color: @color2;
+      color: @color0;
     }
     &:focus {
-        background-color: @color2;
-        color: @color0;
+      background-color: @color2;
+      color: @color0;
     }
+  }
 }
-.dolar-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color2;
-        }
-    }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color2;
-        }
-    }
-    .nav-pills>.active>a {
-        background-color: @color2;
-        color: @color0;
-        &:hover {
-            background-color: @color2;
-            color: @color0;
-        }
-        &:focus {
-            background-color: @color2;
-            color: @color0;
-        }
-    }
-}
+
 .dolarAud-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color15;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color15;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color15;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color15;
     }
-    .nav-pills>.active>a {
-        background-color: @color9;
-        color: @color1;
-        &:hover {
-            background-color: @color9;
-            color: @color1;
-        }
-        &:focus {
-            background-color: @color9;
-            color: @color1;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color9;
+    color: @color1;
+    &:hover {
+      background-color: @color9;
+      color: @color1;
     }
+    &:focus {
+      background-color: @color9;
+      color: @color1;
+    }
+  }
 }
+
 .dolarCad-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color8;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color8;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color8;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color8;
     }
-    .nav-pills>.active>a {
-        background-color: @color8;
-        color: @color0;
-        &:hover {
-            background-color: @color8;
-            color: @color0;
-        }
-        &:focus {
-            background-color: @color8;
-            color: @color0;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color8;
+    color: @color0;
+    &:hover {
+      background-color: @color8;
+      color: @color0;
     }
+    &:focus {
+      background-color: @color8;
+      color: @color0;
+    }
+  }
 }
+
 .dolarNzd-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color7;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color7;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color7;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color7;
     }
-    .nav-pills>.active>a {
-        background-color: @color7;
-        color: @color0;
-        &:hover {
-            background-color: @color7;
-            color: @color0;
-        }
-        &:focus {
-            background-color: @color7;
-            color: @color0;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color7;
+    color: @color0;
+    &:hover {
+      background-color: @color7;
+      color: @color0;
     }
+    &:focus {
+      background-color: @color7;
+      color: @color0;
+    }
+  }
 }
+
 .euro-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color5;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color5;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color5;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color5;
     }
-    .nav-pills>.active>a {
-        background-color: @color5;
-        color: @color0;
-        &:hover {
-            background-color: @color5;
-            color: @color0;
-        }
-        &:focus {
-            background-color: @color5;
-            color: @color0;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color5;
+    color: @color0;
+    &:hover {
+      background-color: @color5;
+      color: @color0;
     }
+    &:focus {
+      background-color: @color5;
+      color: @color0;
+    }
+  }
 }
+
 .libra-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color16;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color16;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color16;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color16;
     }
-    .nav-pills>.active>a {
-        background-color: @color12;
-        color: @color0;
-        &:hover {
-            background-color: @color12;
-            color: @color0;
-        }
-        &:focus {
-            background-color: @color12;
-            color: @color0;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color12;
+    color: @color0;
+    &:hover {
+      background-color: @color12;
+      color: @color0;
     }
+    &:focus {
+      background-color: @color12;
+      color: @color0;
+    }
+  }
 }
+
 .iene-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color6;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color6;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color6;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color6;
     }
-    .nav-pills>.active>a {
-        background-color: @color6;
-        color: @color0;
-        &:hover {
-            background-color: @color6;
-            color: @color0;
-        }
-        &:focus {
-            background-color: @color6;
-            color: @color0;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color6;
+    color: @color0;
+    &:hover {
+      background-color: @color6;
+      color: @color0;
     }
+    &:focus {
+      background-color: @color6;
+      color: @color0;
+    }
+  }
 }
+
 .pesoars-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color3;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color3;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color3;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color3;
     }
-    .nav-pills>.active>a {
-        background-color: @color3;
-        color: @color1;
-        &:hover {
-            background-color: @color3;
-            color: @color1;
-        }
-        &:focus {
-            background-color: @color3;
-            color: @color1;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color3;
+    color: @color1;
+    &:hover {
+      background-color: @color3;
+      color: @color1;
     }
+    &:focus {
+      background-color: @color3;
+      color: @color1;
+    }
+  }
 }
+
 .pesoclp-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color4;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color4;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color4;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color4;
     }
-    .nav-pills>.active>a {
-        background-color: @color4;
-        color: @color1;
-        &:hover {
-            background-color: @color4;
-            color: @color1;
-        }
-        &:focus {
-            background-color: @color4;
-            color: @color1;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color4;
+    color: @color1;
+    &:hover {
+      background-color: @color4;
+      color: @color1;
     }
+    &:focus {
+      background-color: @color4;
+      color: @color1;
+    }
+  }
 }
+
 .pesocop-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color14;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color14;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color14;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color14;
     }
-    .nav-pills>.active>a {
-        background-color: @color10;
-        color: @color1;
-        &:hover {
-            background-color: @color10;
-            color: @color1;
-        }
-        &:focus {
-            background-color: @color10;
-            color: @color1;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color10;
+    color: @color1;
+    &:hover {
+      background-color: @color10;
+      color: @color1;
     }
+    &:focus {
+      background-color: @color10;
+      color: @color1;
+    }
+  }
 }
+
 .pesouyu-container {
-    .input-append {
-        .add-on {
-            background: none repeat scroll 0 0 @color13;
-        }
+  .input-append {
+    .add-on {
+      background: none repeat scroll 0 0 @color13;
     }
-    .input-prepend {
-        .add-on {
-            background: none repeat scroll 0 0 @color13;
-        }
+  }
+  .input-prepend {
+    .add-on {
+      background: none repeat scroll 0 0 @color13;
     }
-    .nav-pills>.active>a {
-        background-color: @color11;
-        color: @color1;
-        &:hover {
-            background-color: @color11;
-            color: @color1;
-        }
-        &:focus {
-            background-color: @color11;
-            color: @color1;
-        }
+  }
+  .nav-pills > .active > a {
+    background-color: @color11;
+    color: @color1;
+    &:hover {
+      background-color: @color11;
+      color: @color1;
     }
+    &:focus {
+      background-color: @color11;
+      color: @color1;
+    }
+  }
 }

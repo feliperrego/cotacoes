@@ -1,0 +1,24 @@
+<div class="justBlur justBlurComplete" ng-class="vm.currencyClass">
+    <img src="../assets/images/dolar.png" alt="dolar" class="img-circle"/>
+
+    <h1>{{name}}
+        <small ng-if="sub">({{sub}})</small>
+    </h1>
+    <p class="lead"></p>
+
+    <div class="curr-content">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon">{{symbol}}$</span>
+            <input type="text" class="form-control" ng-model="vm.currency" ng-change="vm.calculate()" name="currency" ui-number-mask="2" min="0">
+        </div>
+    </div>
+
+    <button ng-click="vm.reset()" class="btn btn-mini" type="button" title="Resetar"><i class="glyphicon glyphicon-refresh"></i></button>
+
+    <div class="curr-content">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon">R$</span>
+            <input type="text" class="form-control" ng-model="vm.real" ng-change="vm.calculate(true)" name="real" ui-number-mask="2" min="0">
+        </div>
+    </div>
+</div>

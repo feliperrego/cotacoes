@@ -1,11 +1,15 @@
 module.exports = {
-    defaultRoutePath: '/about',
+    defaultRoutePath: '/dolar',
     routes: [
+        {
+            url: '/dolar',
+            title: 'Dolar',
+            templateUrl: '/app/components/dolar/dolar.view.html'
+        },
         {
             url: '/about',
             title: 'About',
-            templateUrl: '/app/components/about/about.view.html',
-            showMenu: true
+            templateUrl: '/app/components/about/about.view.html'
         }
     ]
 };
