@@ -9,6 +9,7 @@ require('angular-ui-bootstrap');
 // Shared modules imports
 require('./shared/menu/menu.widget');
 require('./shared/currency/currency.directive');
+require('./shared/currency/currency.service');
 
 // Project modules imports
 require('./components/about/about.controller');
@@ -23,7 +24,7 @@ var app = angular.module('app', [
 
     // Widgets modules
     'app.widget.menu',
-    'app.widget.currency',
+    'app.currency',
 
     //App modules
     'app.about',

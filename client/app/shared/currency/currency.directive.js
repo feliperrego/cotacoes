@@ -1,7 +1,7 @@
 (function () {
 
     angular
-        .module('app.widget.currency', [])
+        .module('app.currency', [])
         .directive("currencyValue", [currencyValue]);
 
     currencyValue.$inject = [];
@@ -14,7 +14,10 @@
                 name: '@',
                 sub: '@',
                 symbol: '@',
-                class: '@'
+                class: '@',
+                currencyCode: '@',
+                img: '@',
+                decimals: '@'
             },
             controllerAs: 'vm',
             controller: currencyValueCtrl
@@ -22,16 +25,18 @@
         }
     }
 
-    currencyValueCtrl.$inject = ['$scope', '$locale'];
-    function currencyValueCtrl($scope, $locale) {
+    currencyValueCtrl.$inject = ['$scope', '$locale', '$timeout', 'currencyService'];
+    function currencyValueCtrl($scope, $locale, $timeout, currencyService) {
         var vm = this;
 
         vm.currency = 1;
-        vm.variation = 3.6;
+        vm.variation = 0;
         vm.real = vm.currency * vm.variation;
         vm.currencyClass = $scope.class;
+        vm.decimals = $scope.decimals ? $scope.decimals : 2;
         $locale.NUMBER_FORMATS.DECIMAL_SEP = ',';
         $locale.NUMBER_FORMATS.GROUP_SEP = '.';
+
 
         vm.calculate = function (inverse) {
             if (inverse) {
@@ -45,6 +50,22 @@
             vm.currency = 1;
             vm.calculate();
         };
+
+        vm.getCurrency = function () {
+            var currencyCode = $scope.currencyCode;
+            //blockUI.start();
+            currencyService.getCurrency(currencyCode, 'BRL').then(function success(data) {
+                $timeout(function(){
+                    vm.variation = data.query.results.row.col0;
+                    vm.calculate();
+                    vm.currencyClass += " complete";
+                }, 200);
+            }, function reject(err) {
+                console.log(err);
+            })
+        };
+
+        vm.getCurrency();
     }
 
 })();
