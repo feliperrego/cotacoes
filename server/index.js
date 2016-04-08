@@ -14,6 +14,29 @@ app.use(express.static(projectDir));
 // Routes set up
 var router = express.Router();
 
+var allCurrencies = [];
+//allCurrencies["EUR"] = {code: "EUR", date: "2016-04-07T14:35:36.124Z", value: "2.7700"};
+
+app.get('/api/currency/:code', function (req, res) {
+    var currency = allCurrencies[req.params.code];
+    //console.log(allCurrencies);
+    res.json(currency);
+});
+
+app.post('/api/currency/', function (req, res) {
+    var response,
+        currency = allCurrencies[req.params.code];
+    if (currency) {
+        response = "Updating stored currency.";
+        currency.value = req.body.value;
+        currency.date = new Date();
+    } else {
+        response = "Storing new currency.";
+        allCurrencies[req.body.code] = req.body;
+    }
+    res.json(response)
+});
+
 // Register the routing
 app.all('/*', function(req, res) {
     res.sendFile(path.resolve(projectDir, 'index.html'));

@@ -53,15 +53,14 @@
 
         vm.getCurrency = function () {
             var currencyCode = $scope.currencyCode;
-            //blockUI.start();
             currencyService.getCurrency(currencyCode, 'BRL').then(function success(data) {
                 $timeout(function(){
-                    vm.variation = data.query.results.row.col0;
+                    vm.variation = data;
                     vm.calculate();
                     vm.currencyClass += " complete";
                 }, 200);
             }, function reject(err) {
-                console.log(err);
+                console.log("Error:", err);
             })
         };
 
