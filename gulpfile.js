@@ -25,7 +25,7 @@ var buildFolder;
 function execTasks() {
     var tasks = [];
     if (process.env.NODE_ENV == "prod") {
-        tasks.push('browserify', 'less', 'imagemin', 'copy-html');
+        tasks.push('browserify', 'less', 'imagemin', 'copy-html', 'copy-fonts');
     } else {
         tasks.push('browserify', 'less')
     }
@@ -87,6 +87,11 @@ gulp.task('imagemin', function () {
 gulp.task('copy-html', function() {
     return gulp.src(client + '**/*.html')
         .pipe(gulp.dest(path.join(__dirname, './dist')));
+});
+
+gulp.task('copy-fonts', function() {
+    return gulp.src(client + 'assets/fonts/*')
+        .pipe(gulp.dest(path.join(__dirname, './dist/assets/fonts')));
 });
 
 gulp.task("default", ["start"]);
