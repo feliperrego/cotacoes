@@ -5,9 +5,8 @@ var allCurrencies = [];
 
 module.exports = function () {
     /**
-     * @Method: GET
-     * @URL: /currency/{code}
-     * @param: code
+     * @Method GET
+     * @URL /currency/{code}
      */
     api.get('/currency/:code', function (req, res) {
         var currency = allCurrencies[req.params.code];
@@ -15,9 +14,9 @@ module.exports = function () {
     });
 
     /**
-     * @Method: POST
-     * @URL: /currency
-     * @param: value
+     * @Method POST
+     * @URL /currency
+     * @param value
      */
     api.post('/currency', function (req, res) {
         var response = "";

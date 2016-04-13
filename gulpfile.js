@@ -21,8 +21,8 @@ var	nodeApp 	= server + 'index.js';
 var buildFolder;
 
 
-// Generic function to execute gulp tasks
-function execTasks() {
+// Task to treat static files(css, js, html, etc).
+gulp.task("static", function () {
     var tasks = [];
     if (process.env.NODE_ENV == "prod") {
         tasks.push('browserify', 'less', 'imagemin', 'copy-html', 'copy-fonts');
@@ -30,7 +30,7 @@ function execTasks() {
         tasks.push('browserify', 'less')
     }
     gulp.start(tasks);
-}
+});
 
 // Set production environment
 gulp.task("production", function () {
@@ -46,8 +46,8 @@ gulp.task("start", function () {
         ext: "js css less",
         watch: [client]
     })
-        .on('start', execTasks)
-        .on('change', execTasks);
+        .on('start', ['static'])
+        .on('change', ['static']);
 });
 
 // Compile all less files

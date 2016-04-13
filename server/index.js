@@ -1,9 +1,8 @@
 // Initialize the express framework
-var express = require('express');
-var path = require('path');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var api = require('./api/');
+var express     = require('express');
+var path        = require('path');
+var mongoose    = require('mongoose');
+var bodyParser  = require('body-parser');
 
 // Express setup
 var projectDir = process.env.NODE_ENV == "prod" ? path.join(__dirname, '../dist') : path.join(__dirname, '../client');
@@ -13,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(projectDir));
 
 // Register the routes
-app.use('/api', api);
+app.use('/api', require('./api/'));
 
 app.all('/*', function (req, res) {
     res.sendFile(path.resolve(projectDir, 'index.html'));
