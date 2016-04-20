@@ -10,10 +10,8 @@ node_js:
   - '5'
 
 after_success:
-  - mkdir build
-  - mv * build
+  - tar -czf package.tgz *
   - git rev-parse HEAD > version
-  - tar -czf package.tgz build
   - curl --ftp-create-dirs -T package.tgz -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_HOST/$FTP_DIR/
   - curl --ftp-create-dirs -T version -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_HOST/$FTP_DIR/
 
