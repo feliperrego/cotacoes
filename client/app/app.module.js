@@ -16,6 +16,7 @@ require('./components/about/about.controller');
 
 // Third party imports
 require('angular-input-masks');
+require('angularytics');
 
 var app = angular.module('app', [
     // Angular modules
@@ -30,7 +31,8 @@ var app = angular.module('app', [
     'app.about',
 
     //Third party modules
-    'ui.utils.masks'
+    'ui.utils.masks',
+    'angularytics'
 ]);
 
 // Routes configuration
@@ -49,4 +51,11 @@ app.config(['$locationProvider', '$routeProvider', '$controllerProvider', functi
             }
         );
     });
+}]);
+
+// Angularytics configuration
+app.config(['AngularyticsProvider', function (AngularyticsProvider) {
+    AngularyticsProvider.setEventHandlers(['Console', 'GoogleUniversal']);
+}]).run(['Angularytics', function (Angularytics) {
+    Angularytics.init();
 }]);
