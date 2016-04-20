@@ -47,10 +47,20 @@ app.config(['$locationProvider', '$routeProvider', '$controllerProvider', functi
             {
                 url: route.url,
                 templateUrl: route.templateUrl,
-                title: route.title
+                title: route.title,
+                description: route.description
             }
         );
     });
+}]).run(['$rootScope', function($rootScope){
+    $rootScope.$on('$routeChangeSuccess',
+        function (event, current, previous) {
+            if (current && current.$$route) {
+                $rootScope.pageTitle = current.$$route.title;
+                $rootScope.pageDescription = current.$$route.description;
+            }
+        }
+    )
 }]);
 
 // Angularytics configuration

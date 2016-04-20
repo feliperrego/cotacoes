@@ -14,15 +14,8 @@
         }
     }
 
-    menuWidgetCtrl.$inject = ['$rootScope'];
-    function menuWidgetCtrl($rootScope) {
-        $rootScope.$on('$routeChangeSuccess',
-            function (event, current, previous) {
-                if (current && current.$$route) {
-                    $rootScope.pageTitle = current.$$route.title;
-                }
-            }
-        )
+    menuWidgetCtrl.$inject = [];
+    function menuWidgetCtrl() {
     }
 
 })();

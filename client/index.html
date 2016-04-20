@@ -3,10 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title ng-if="pageTitle" ng-bind="pageTitle + ' - Cotações de moedas'"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title ng-if="pageTitle" ng-bind="pageTitle + ' - Cotações de moedas'"></title>
+    <meta ng-if="pageDescription" name="description" content="{{pageDescription}}">
+    <meta name="author" content="Felipe Rêgo">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
 
     <link href="style.css" rel="stylesheet">
@@ -19,7 +19,6 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-52336627-2', 'auto');
-        //        ga('send', 'pageview');
 
     </script>
 </head>
