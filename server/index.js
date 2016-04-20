@@ -1,11 +1,12 @@
 // Initialize the express framework
 var express     = require('express');
 var path        = require('path');
-var mongoose    = require('mongoose');
+//var mongoose    = require('mongoose');
 var bodyParser  = require('body-parser');
 
 // Express setup
 var projectDir = process.env.NODE_ENV == "prod" ? path.join(__dirname, '../dist') : path.join(__dirname, '../client');
+var projectPort = process.env.NODE_ENV == "prod" ? 80 : 3000;
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,7 +27,7 @@ app.all('/*', function (req, res) {
 
 // Start up the server
 //function startServer() {
-var server = app.listen(3000, function () {
+var server = app.listen(projectPort, function () {
     var port = server.address().port;
     console.log('Listening on port ' + port);
 });
