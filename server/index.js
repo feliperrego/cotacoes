@@ -3,14 +3,19 @@ var express     = require('express');
 var path        = require('path');
 //var mongoose    = require('mongoose');
 var bodyParser  = require('body-parser');
+var compress    = require('compression');
+var serveStatic = require('serve-static');
+var app         = express();
 
-// Express setup
+// Project path
 var projectDir = process.env.NODE_ENV == "prod" ? path.join(__dirname, '../dist') : path.join(__dirname, '../client');
 var projectPort = process.env.NODE_ENV == "prod" ? 80 : 3000;
-var app = express();
+
+// Express setup
+app.use(compress());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(projectDir));
+app.use(serveStatic(projectDir));
 
 // Register the routes
 app.use('/api', require('./api/'));
