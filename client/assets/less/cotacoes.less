@@ -1,43 +1,172 @@
-// Color variables (appears count calculates by raw css)
-@color0: #555555;
-// Appears 21 times
-@color1: #ffffff;
-// Appears 15 times
-@color2: #dff0d8;
-// Appears 10 times
-@color3: #74acdf;
-// Appears 6 times
-@color4: #789d7d;
-// Appears 6 times
-@color5: #c3c2e6;
-// Appears 5 times
-@color6: #feeaca;
-// Appears 5 times
-@color7: #c5ab9e;
-// Appears 5 times
-@color8: #f4978f;
-// Appears 5 times
-@color9: #41929d;
-// Appears 4 times
-@color10: #a7a090;
-// Appears 4 times
-@color11: #7b6f7a;
-// Appears 4 times
-@color12: #dbc2d7;
-// Appears 3 times
-@color13: #9c909b;
-// Appears 2 times
-@color14: #c1baa9;
-// Appears 2 times
-@color15: #8aadc0;
-// Appears 2 times
-@color16: #e8cfe4;
-// Appears 2 times
+/*
+ * Globals
+ */
 
-body {
-  padding-bottom: 40px;
-  padding-top: 20px;
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
 }
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  min-width: 270px;
+}
+body {
+  color: #999999;
+  text-align: center;
+  //text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 140px rgba(0,0,0,.2);
+  box-shadow: inset 0 0 140px rgba(0,0,0,.2);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+
+/*
+ * Header
+ */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  //color: #fff; /* IE8 proofing */
+  //color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  //color: #fff;
+  border-bottom-color: #fff;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
+  }
+}
+
+@media (max-width: 992px) {
+  .masthead .inner {
+    padding-left: 18%;
+    padding-right: 18%;
+  }
+
+  .content-img {
+    text-align: right;
+  }
+
+}
+
+
+//body {
+//  padding-bottom: 40px;
+//  padding-top: 20px;
+//}
 
 .container-narrow {
   margin: 0 auto;
@@ -53,32 +182,33 @@ body {
   font-weight: bold;
 }
 
-.jumbotron {
+.cover {
+  //padding: 0 20px;
   margin: 60px 0;
   text-align: center;
-  background-color: #FFF;
+  background-color: transparent;
   padding: 0;
-  h1 {
-    font-size: 72px;
-    line-height: 2;
-    font-weight: bold;
-
-    small {
-      font-size: 24.5px;
-      color: #999999;
-      margin-left: -15px;
-    }
-  }
+  //h1 {
+  //  font-size: 72px;
+  //  line-height: 2;
+  //  font-weight: bold;
+  //
+  //  small {
+  //    font-size: 24.5px;
+  //    color: #999999;
+  //    margin-left: -15px;
+  //  }
+  //}
   .btn {
     font-size: 21px;
     padding: 14px 24px;
   }
-  img {
-    float: left;
-    height: 135px;
-    margin-left: 129px;
-    margin-right: -67px;
-  }
+  //img {
+  //  float: left;
+  //  height: 135px;
+  //  margin-left: 129px;
+  //  margin-right: -67px;
+  //}
 
   .curr-content {
     display: inline-block;
@@ -103,18 +233,36 @@ body {
     }
 
   }
-
+  .content-img {
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .content-title {
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    h1 {
+        font-size: 55px;
+        font-weight: bold;
+    }
+    small {
+      font-size: 24.5px;
+      color: #999999;
+    }
+  }
   .btn-mini {
     -moz-border-radius: 4px !important;
     -webkit-border-radius: 4px !important;
     border-radius: 4px !important;
     margin-top: -38px;
-    padding: 3px 5px !important;
     font-size: 14px;
-    padding-top: 2px;
+    padding: 3px 5px !important;
   }
-
-
+  .btn-lg {
+    padding: 10px 20px;
+    font-weight: bold;
+  }
   .dolarContainer {
     h1 {
       color: #9dad96;
@@ -262,34 +410,34 @@ body {
 }
 
 .nav-pills > .active > a {
-  background-color: @color2;
-  color: @color0;
+  background-color: #dff0d8;
+  color: #555555;
   &:hover {
-    background-color: @color2;
-    color: @color0;
+    background-color: #dff0d8;
+    color: #555555;
   }
   &:focus {
-    background-color: @color2;
-    color: @color0;
+    background-color: #dff0d8;
+    color: #555555;
   }
 }
 
 .dolar-container {
   .input-append.input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color2;
+      background: none repeat scroll 0 0 #dff0d8;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color2;
-    color: @color0;
+    background-color: #dff0d8;
+    color: #555555;
     &:hover {
-      background-color: @color2;
-      color: @color0;
+      background-color: #dff0d8;
+      color: #555555;
     }
     &:focus {
-      background-color: @color2;
-      color: @color0;
+      background-color: #dff0d8;
+      color: #555555;
     }
   }
 }
@@ -297,24 +445,24 @@ body {
 .dolarAud-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color15;
+      background: none repeat scroll 0 0 #8aadc0;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color15;
+      background: none repeat scroll 0 0 #8aadc0;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color9;
-    color: @color1;
+    background-color: #41929d;
+    color: #ffffff;
     &:hover {
-      background-color: @color9;
-      color: @color1;
+      background-color: #41929d;
+      color: #ffffff;
     }
     &:focus {
-      background-color: @color9;
-      color: @color1;
+      background-color: #41929d;
+      color: #ffffff;
     }
   }
 }
@@ -322,24 +470,24 @@ body {
 .dolarCad-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color8;
+      background: none repeat scroll 0 0 #f4978f;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color8;
+      background: none repeat scroll 0 0 #f4978f;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color8;
-    color: @color0;
+    background-color: #f4978f;
+    color: #555555;
     &:hover {
-      background-color: @color8;
-      color: @color0;
+      background-color: #f4978f;
+      color: #555555;
     }
     &:focus {
-      background-color: @color8;
-      color: @color0;
+      background-color: #f4978f;
+      color: #555555;
     }
   }
 }
@@ -347,24 +495,24 @@ body {
 .dolarNzd-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color7;
+      background: none repeat scroll 0 0 #c5ab9e;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color7;
+      background: none repeat scroll 0 0 #c5ab9e;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color7;
-    color: @color0;
+    background-color: #c5ab9e;
+    color: #555555;
     &:hover {
-      background-color: @color7;
-      color: @color0;
+      background-color: #c5ab9e;
+      color: #555555;
     }
     &:focus {
-      background-color: @color7;
-      color: @color0;
+      background-color: #c5ab9e;
+      color: #555555;
     }
   }
 }
@@ -372,24 +520,24 @@ body {
 .euro-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color5;
+      background: none repeat scroll 0 0 #c3c2e6;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color5;
+      background: none repeat scroll 0 0 #c3c2e6;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color5;
-    color: @color0;
+    background-color: #c3c2e6;
+    color: #555555;
     &:hover {
-      background-color: @color5;
-      color: @color0;
+      background-color: #c3c2e6;
+      color: #555555;
     }
     &:focus {
-      background-color: @color5;
-      color: @color0;
+      background-color: #c3c2e6;
+      color: #555555;
     }
   }
 }
@@ -397,24 +545,24 @@ body {
 .libra-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color16;
+      background: none repeat scroll 0 0 #e8cfe4;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color16;
+      background: none repeat scroll 0 0 #e8cfe4;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color12;
-    color: @color0;
+    background-color: #dbc2d7;
+    color: #555555;
     &:hover {
-      background-color: @color12;
-      color: @color0;
+      background-color: #dbc2d7;
+      color: #555555;
     }
     &:focus {
-      background-color: @color12;
-      color: @color0;
+      background-color: #dbc2d7;
+      color: #555555;
     }
   }
 }
@@ -422,24 +570,24 @@ body {
 .iene-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color6;
+      background: none repeat scroll 0 0 #feeaca;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color6;
+      background: none repeat scroll 0 0 #feeaca;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color6;
-    color: @color0;
+    background-color: #feeaca;
+    color: #555555;
     &:hover {
-      background-color: @color6;
-      color: @color0;
+      background-color: #feeaca;
+      color: #555555;
     }
     &:focus {
-      background-color: @color6;
-      color: @color0;
+      background-color: #feeaca;
+      color: #555555;
     }
   }
 }
@@ -447,24 +595,24 @@ body {
 .pesoars-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color3;
+      background: none repeat scroll 0 0 #74acdf;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color3;
+      background: none repeat scroll 0 0 #74acdf;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color3;
-    color: @color1;
+    background-color: #74acdf;
+    color: #ffffff;
     &:hover {
-      background-color: @color3;
-      color: @color1;
+      background-color: #74acdf;
+      color: #ffffff;
     }
     &:focus {
-      background-color: @color3;
-      color: @color1;
+      background-color: #74acdf;
+      color: #ffffff;
     }
   }
 }
@@ -472,24 +620,24 @@ body {
 .pesoclp-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color4;
+      background: none repeat scroll 0 0 #789d7d;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color4;
+      background: none repeat scroll 0 0 #789d7d;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color4;
-    color: @color1;
+    background-color: #789d7d;
+    color: #ffffff;
     &:hover {
-      background-color: @color4;
-      color: @color1;
+      background-color: #789d7d;
+      color: #ffffff;
     }
     &:focus {
-      background-color: @color4;
-      color: @color1;
+      background-color: #789d7d;
+      color: #ffffff;
     }
   }
 }
@@ -497,24 +645,24 @@ body {
 .pesocop-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color14;
+      background: none repeat scroll 0 0 #ffffff;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color14;
+      background: none repeat scroll 0 0 #ffffff;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color10;
-    color: @color1;
+    background-color: #ffffff;
+    color: #ffffff;
     &:hover {
-      background-color: @color10;
-      color: @color1;
+      background-color: #ffffff;
+      color: #ffffff;
     }
     &:focus {
-      background-color: @color10;
-      color: @color1;
+      background-color: #ffffff;
+      color: #ffffff;
     }
   }
 }
@@ -522,24 +670,40 @@ body {
 .pesouyu-container {
   .input-append {
     .add-on {
-      background: none repeat scroll 0 0 @color13;
+      background: none repeat scroll 0 0 #ffffff;
     }
   }
   .input-prepend {
     .add-on {
-      background: none repeat scroll 0 0 @color13;
+      background: none repeat scroll 0 0 #ffffff;
     }
   }
   .nav-pills > .active > a {
-    background-color: @color11;
-    color: @color1;
+    background-color: #ffffff;
+    color: #ffffff;
     &:hover {
-      background-color: @color11;
-      color: @color1;
+      background-color: #ffffff;
+      color: #ffffff;
     }
     &:focus {
-      background-color: @color11;
-      color: @color1;
+      background-color: #ffffff;
+      color: #ffffff;
     }
   }
+}
+
+@media (max-width: 630px) {
+  .cover .btn-mini {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+  }
+  .cover .curr-content {
+    margin: 20px 20px 0;
+    width: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .content-img img { width: 95% }
 }

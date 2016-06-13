@@ -25,23 +25,47 @@
 
 <body>
 <base href="/">
-<!-- Container -->
-<div class="container-narrow">
+    <div class="site-wrapper">
 
-    <div class="masthead">
-        <menu-widget></menu-widget>
-        <h3 class="muted">Cotações de Moedas</h3>
+        <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">Cotações</h3>
+                        <menu-widget></menu-widget>
+                    </div>
+                </div>
+
+                <div class="inner cover" ng-view></div>
+
+                <div class="mastfoot">
+                    <div class="inner"></div>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-    <hr>
+    <!--<div class="wrapper-global" style="position: relative; height: 100vh">-->
+        <!--<div class="container-narrow" style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%)">-->
 
-    <div ng-view></div>
+            <!--<div class="masthead">-->
+                <!--<menu-widget></menu-widget>-->
+                <!--<h3 class="muted">Cotações de Moedas</h3>-->
+            <!--</div>-->
+            <!--<hr>-->
 
-    <hr>
-    <div class="footer">
-        <p></p>
-    </div>
+            <!--<div ng-view></div>-->
 
-</div>
-<!-- /container -->
+            <!--<hr>-->
+            <!--<div class="footer">-->
+                <!--<p></p>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
 </body>
 </html>

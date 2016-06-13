@@ -9,7 +9,6 @@ var app         = express();
 
 // Project path
 var projectDir = process.env.NODE_ENV == "prod" ? path.join(__dirname, '../dist') : path.join(__dirname, '../client');
-var projectPort = process.env.NODE_ENV == "prod" ? 80 : 3000;
 
 // Express setup
 app.use(compress());
@@ -32,7 +31,7 @@ app.all('/*', function (req, res) {
 
 // Start up the server
 //function startServer() {
-var server = app.listen(projectPort, function () {
+var server = app.listen(3001, function () {
     var port = server.address().port;
     console.log('Listening on port ' + port);
 });
