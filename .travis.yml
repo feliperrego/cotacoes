@@ -1,0 +1,10 @@
+language: node_js
+
+before_script:
+  - npm install
+
+script:
+  - gulp production static
+
+node_js:
+  - '5'
