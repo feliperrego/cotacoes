@@ -4,6 +4,10 @@
   "description": "A project to study AngularJS, NodeJS and MongoJS.",
   "author": "Felipe Rêgo",
   "license": "ISC",
+  "scripts": {
+    "start": "gulp start",
+    "start:prod": "gulp production static && NODE_ENV=\"prod\" node server/index.js "
+  },
   "devDependencies": {
     "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",

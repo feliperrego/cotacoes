@@ -52,23 +52,23 @@ gulp.task("start", function () {
 
 // Compile all less files
 gulp.task('less', function () {
-    buildFolder = process.env.NODE_ENV == "prod" ? path.join(__dirname, './dist') : path.join(__dirname, './client');
+    buildFolder = process.env.NODE_ENV === "prod" ? path.join(__dirname, './dist') : path.join(__dirname, './client');
     return gulp.src(client + 'assets/less/style.less')
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
-        .pipe(gulpif(process.env.NODE_ENV == "prod", cssmin()))
+        .pipe(gulpif(process.env.NODE_ENV === "prod", cssmin()))
         .pipe(gulp.dest(buildFolder));
 });
 
 // Concatenate and compress all js files
 gulp.task('browserify', function () {
-    buildFolder = process.env.NODE_ENV == "prod" ? path.join(__dirname, './dist') : path.join(__dirname, './client');
+    buildFolder = process.env.NODE_ENV === "prod" ? path.join(__dirname, './dist') : path.join(__dirname, './client');
     return browserify({entries: [client + 'app/app.module.js']})
         .bundle()
         .pipe(source('app.js'))
         .pipe(buffer())
-        .pipe(gulpif(process.env.NODE_ENV == "prod", uglify()))
+        .pipe(gulpif(process.env.NODE_ENV === "prod", uglify()))
         .pipe(gulp.dest(buildFolder))
 });
 

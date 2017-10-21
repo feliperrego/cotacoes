@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    container_name: cotacoes
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: "host"
+    volumes:
+     - ./client:/home/app/code/client
+     - ./server:/home/app/code/server

@@ -8,7 +8,7 @@ var serveStatic = require('serve-static');
 var app         = express();
 
 // Project path
-var projectDir = process.env.NODE_ENV == "prod" ? path.join(__dirname, '../dist') : path.join(__dirname, '../client');
+var projectDir = process.env.NODE_ENV === "prod" ? path.join(__dirname, '../dist') : path.join(__dirname, '../client');
 
 // Express setup
 app.use(compress());
